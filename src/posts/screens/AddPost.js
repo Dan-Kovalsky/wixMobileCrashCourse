@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {View, Text, StyleSheet} from 'react-native';
+import {View, Text, StyleSheet,TextInput} from 'react-native';
 import PropTypes from 'prop-types';
 import {Navigation} from 'react-native-navigation/lib/dist/index';
 
@@ -14,6 +14,7 @@ class AddPost extends Component {
     constructor(props) {
         super(props);
         Navigation.events().bindComponent(this);
+        this.onChangeText = this.onChangeText.bind(this);
     }
 
     static get options() {
@@ -24,7 +25,8 @@ class AddPost extends Component {
                 },
                 rightButtons: [{
                     id: 'saveBtn',
-                    text: 'Save'
+                    text: 'Save',
+                    enabled: false
                 }],
                 leftButtons: [{
                     id: 'cancelBtn',
@@ -42,11 +44,28 @@ class AddPost extends Component {
         }
     }
 
+    onChangeText(text) {
+        Navigation.mergeOptions(this.props.componentId, {
+            topBar: {
+                rightButtons: [{
+                    id: 'saveBtn',
+                    text: 'Save',
+                    enabled: !!text
+                }]
+            }
+        });
+    }
+
     render() {
         return (
             <View style={styles.container}>
                 <Text style={styles.text}>Add Post Screen</Text>
                 <Text>{this.props.someProp}</Text>
+
+                <TextInput
+                    placeholder="Start writing to enable the save btn"
+                    onChangeText={this.onChangeText}
+                />
             </View>
         );
     }
