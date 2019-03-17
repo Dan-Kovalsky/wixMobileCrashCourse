@@ -9,6 +9,7 @@ class PostsList extends PureComponent {
         super(props);
 
         this.pushViewPostScreen = this.pushViewPostScreen.bind(this);
+        this.pushAddPostScreen = this.pushAddPostScreen.bind(this);
         Navigation.events().bindComponent(this);
     }
 
@@ -26,9 +27,27 @@ class PostsList extends PureComponent {
     }
 
     static propTypes = {
-        componentId: PropTypes.string
-
+        componentId: PropTypes.string,
     };
+
+    pushAddPostScreen(){
+        Navigation.push(this.props.componentId, {
+            component: {
+                name: 'blog.AddPost',
+                passProps: {
+                    somePropToPass: 'another props that we are passing'
+                }
+                // ,
+                // options: {
+                //     topBar: {
+                //         title: {
+                //             text: 'Add Posדשגt'
+                //         }
+                //     }
+                // }
+            }
+        });
+    }
 
     pushViewPostScreen() {
         Navigation.push(this.props.componentId, {
@@ -49,7 +68,32 @@ class PostsList extends PureComponent {
     }
 
     navigationButtonPressed({buttonId}) {
-        alert(buttonId);
+        // alert(buttonId)
+
+        // this.pushAddPostScreen()
+
+        Navigation.showModal({
+            stack: {
+                children: [{
+                    component: {
+                        name: 'blog.AddPost',
+                        passProps: {
+                            someProp: 'some props'
+                        }
+                        // ,
+                        // options: {
+                        //     topBar: {
+                        //         title: {
+                        //             text: 'Modal'
+                        //         }
+                        //     }
+                        // }
+                    }
+                }]
+            }
+        });
+
+
     }
 
 
