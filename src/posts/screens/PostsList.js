@@ -9,7 +9,7 @@ class PostsList extends PureComponent {
         super(props);
 
         this.pushViewPostScreen = this.pushViewPostScreen.bind(this);
-        this.pushAddPostScreen = this.pushAddPostScreen.bind(this);
+        // this.pushAddPostScreen = this.pushAddPostScreen.bind(this);
         Navigation.events().bindComponent(this);
     }
 
@@ -27,29 +27,30 @@ class PostsList extends PureComponent {
     }
 
     static propTypes = {
-        componentId: PropTypes.string,
+        componentId: PropTypes.string
     };
 
-    pushAddPostScreen(){
-        Navigation.push(this.props.componentId, {
-            component: {
-                name: 'blog.AddPost',
-                passProps: {
-                    somePropToPass: 'another props that we are passing'
-                }
-                // ,
-                // options: {
-                //     topBar: {
-                //         title: {
-                //             text: 'Add Posדשגt'
-                //         }
-                //     }
-                // }
-            }
-        });
-    }
+    // pushAddPostScreen(){
+    //     Navigation.push(this.props.componentId, {
+    //         component: {
+    //             name: 'blog.AddPost',
+    //             passProps: {
+    //                 somePropToPass: 'another props that we are passing'
+    //             }
+    //             // ,
+    //             // options: {
+    //             //     topBar: {
+    //             //         title: {
+    //             //             text: 'Add Posדשגt'
+    //             //         }
+    //             //     }
+    //             // }
+    //         }
+    //     });
+    // }
 
     pushViewPostScreen() {
+        // alert('dlfjndlj')
         Navigation.push(this.props.componentId, {
             component: {
                 name: 'blog.ViewPost',
@@ -64,13 +65,11 @@ class PostsList extends PureComponent {
                     }
                 }
             }
+
         });
     }
 
     navigationButtonPressed({buttonId}) {
-        // alert(buttonId)
-
-        // this.pushAddPostScreen()
 
         Navigation.showModal({
             stack: {
@@ -92,8 +91,6 @@ class PostsList extends PureComponent {
                 }]
             }
         });
-
-
     }
 
 
@@ -101,6 +98,7 @@ class PostsList extends PureComponent {
         return (
             <View style={styles.container}>
                 <Text style={styles.text} onPress={this.pushViewPostScreen}>PostsList Screen</Text>
+
             </View>
         );
     }
