@@ -11,6 +11,7 @@ class PostsList extends PureComponent {
         this.pushViewPostScreen = this.pushViewPostScreen.bind(this);
         // this.pushAddPostScreen = this.pushAddPostScreen.bind(this);
         Navigation.events().bindComponent(this);
+        // this.state = {isPostExist : false}
     }
 
     static get options() {
@@ -50,7 +51,10 @@ class PostsList extends PureComponent {
     // }
 
     pushViewPostScreen() {
-        // alert('dlfjndlj')
+        // if (!this.state.isPostExist){
+        //     alert('Post Deleted')
+        //     return
+        // }
         Navigation.push(this.props.componentId, {
             component: {
                 name: 'blog.ViewPost',

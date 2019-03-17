@@ -16,6 +16,7 @@ class ViewPost extends Component {
 
     popScreenAfterDel(){
         Navigation.pop(this.props.componentId)
+        alert("Post deleted")
     }
 
 

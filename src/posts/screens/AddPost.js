@@ -40,6 +40,7 @@ class AddPost extends Component {
         if (buttonId === 'cancelBtn') {
             Navigation.dismissModal(this.props.componentId);
         } else if (buttonId === 'saveBtn') {
+            Navigation.dismissModal(this.props.componentId);
             alert('saveBtn');
         }
     }
