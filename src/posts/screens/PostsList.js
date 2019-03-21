@@ -90,7 +90,7 @@ class PostsList extends Component {
                 <Text style={styles.text}>PostsList Screen</Text>
                 <FlatList
                     data={this.props.posts}
-                    keyExtractor={item => item.id}
+                    keyExtractor={item => item.id.toString()}
                     renderItem={this.renderItem}
                 />
             </View>
