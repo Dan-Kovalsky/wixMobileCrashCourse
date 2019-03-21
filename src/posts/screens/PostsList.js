@@ -1,5 +1,5 @@
 import React, {Component, PureComponent} from 'react';
-import {View, Text, StyleSheet} from 'react-native';
+import {View, Text, StyleSheet,FlatList} from 'react-native';
 import PropTypes from 'prop-types';
 import {Navigation} from "react-native-navigation";
 
@@ -37,12 +37,13 @@ class PostsList extends Component {
 
     };
 
-    pushViewPostScreen() {
+    pushViewPostScreen(post) {
         Navigation.push(this.props.componentId, {
             component: {
                 name: 'blog.ViewPost',
                 passProps: {
-                    somePropToPass: 'Some props that we are passing'
+                    // somePropToPass: 'Some props that we are passing'
+                    post
                 },
                 options: {
                     topBar: {
@@ -76,11 +77,22 @@ class PostsList extends Component {
         postsActions.fetchPosts();
     }
 
+    renderItem = ({item}) => (
+        <Text onPress={() => this.pushViewPostScreen(item)}>
+            {item.title}
+        </Text>);
+
     render() {
         return (
             <View style={styles.container}>
-                <Text style={styles.text} onPress={this.pushViewPostScreen}>Posts List Screen</Text>
-                <Text>{JSON.stringify(this.props.posts)}</Text>
+                {/*<Text style={styles.text} onPress={this.pushViewPostScreen}>Posts List Screen</Text>*/}
+                {/*<Text>{JSON.stringify(this.props.posts)}</Text>*/}
+                <Text style={styles.text}>PostsList Screen</Text>
+                <FlatList
+                    data={this.props.posts}
+                    keyExtractor={item => item.id}
+                    renderItem={this.renderItem}
+                />
             </View>
         );
     }

@@ -11,8 +11,7 @@ class ViewPost extends Component {
 
     static propTypes = {
         componentId: PropTypes.string,
-        somePropToPass: PropTypes.string
-    };
+        post: PropTypes.object    };
 
     popScreenAfterDel(){
         Navigation.pop(this.props.componentId)
@@ -24,7 +23,7 @@ class ViewPost extends Component {
         return (
             <View style={styles.container}>
                 <Text style={styles.text}>View Post Screen</Text>
-                <Text>{this.props.somePropToPass}</Text>
+                <Text>{JSON.stringify(this.props.post)}</Text>
                 <Text style={styles.deleteText} onPress={this.popScreenAfterDel}>Delete Post</Text>
 
 
