@@ -3,7 +3,12 @@ import {View, Text, StyleSheet} from 'react-native';
 import PropTypes from 'prop-types';
 import {Navigation} from "react-native-navigation";
 
-class PostsList extends PureComponent {
+import {connect} from 'remx';
+
+import {postsStore} from '../store';
+import * as postsActions from '../actions';
+
+class PostsList extends Component {
 
     constructor(props) {
         super(props);
@@ -28,7 +33,9 @@ class PostsList extends PureComponent {
     }
 
     static propTypes = {
-        componentId: PropTypes.string
+        componentId: PropTypes.string,
+        posts: PropTypes.array
+
     };
 
     // pushAddPostScreen(){
@@ -97,18 +104,31 @@ class PostsList extends PureComponent {
         });
     }
 
+    componentDidMount() {
+        postsActions.fetchPosts();
+    }
 
     render() {
         return (
             <View style={styles.container}>
-                <Text style={styles.text} onPress={this.pushViewPostScreen}>PostsList Screen</Text>
-
+                <Text style={styles.text} onPress={this.pushViewPostScreen}>Posts List Screen</Text>
+                <Text>{JSON.stringify(this.props.posts)}</Text>
             </View>
         );
     }
 }
 
-export default PostsList;
+
+
+function mapStateToProps() {
+    return {
+        posts: postsStore.getPosts()
+    };
+}
+
+export default connect(mapStateToProps)(PostsList);
+
+
 
 const styles = StyleSheet.create({
     container: {
