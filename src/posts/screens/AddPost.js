@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {View, Text, StyleSheet,TextInput} from 'react-native';
 import PropTypes from 'prop-types';
 import {Navigation} from 'react-native-navigation/lib/dist/index';
+import * as postsActions from '../posts.actions';
 
 
 class AddPost extends Component {
@@ -14,6 +15,13 @@ class AddPost extends Component {
     constructor(props) {
         super(props);
         Navigation.events().bindComponent(this);
+
+        this.state = {
+            title: '',
+            text: ''
+        };
+
+        this.onChangeTitle = this.onChangeTitle.bind(this);
         this.onChangeText = this.onChangeText.bind(this);
     }
 
@@ -41,20 +49,30 @@ class AddPost extends Component {
             Navigation.dismissModal(this.props.componentId);
         } else if (buttonId === 'saveBtn') {
             Navigation.dismissModal(this.props.componentId);
-            alert('saveBtn');
+            const randomImageNumber = Math.floor((Math.random() * 500) + 1);
+            postsActions.addPost({
+                title: this.state.title,
+                text: this.state.text,
+                img: `https://picsum.photos/200/200/?image=${randomImageNumber}`
+            });
         }
     }
 
-    onChangeText(text) {
+    onChangeTitle(title){
+        this.setState({title});
         Navigation.mergeOptions(this.props.componentId, {
             topBar: {
                 rightButtons: [{
                     id: 'saveBtn',
                     text: 'Save',
-                    enabled: !!text
+                    enabled: !!title
                 }]
             }
         });
+    }
+
+    onChangeText(text) {
+        this.setState({text});
     }
 
     render() {
@@ -64,7 +82,13 @@ class AddPost extends Component {
                 <Text>{this.props.someProp}</Text>
 
                 <TextInput
-                    placeholder="Start writing to enable the save btn"
+                    placeholder="Add great title"
+                    value={this.state.title}
+                    onChangeText={this.onChangeTitle}
+                />
+                <TextInput
+                    placeholder = "This is the beggining of a new great post"
+                    value = {this.state.text}
                     onChangeText={this.onChangeText}
                 />
             </View>

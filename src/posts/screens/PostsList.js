@@ -5,8 +5,8 @@ import {Navigation} from "react-native-navigation";
 
 import {connect} from 'remx';
 
-import {postsStore} from '../store';
-import * as postsActions from '../actions';
+import {postsStore} from '../posts.store';
+import * as postsActions from '../posts.actions';
 
 class PostsList extends Component {
 
@@ -14,9 +14,8 @@ class PostsList extends Component {
         super(props);
 
         this.pushViewPostScreen = this.pushViewPostScreen.bind(this);
-        // this.pushAddPostScreen = this.pushAddPostScreen.bind(this);
         Navigation.events().bindComponent(this);
-        // this.state = {isPostExist : false}
+
     }
 
     static get options() {
@@ -38,30 +37,7 @@ class PostsList extends Component {
 
     };
 
-    // pushAddPostScreen(){
-    //     Navigation.push(this.props.componentId, {
-    //         component: {
-    //             name: 'blog.AddPost',
-    //             passProps: {
-    //                 somePropToPass: 'another props that we are passing'
-    //             }
-    //             // ,
-    //             // options: {
-    //             //     topBar: {
-    //             //         title: {
-    //             //             text: 'Add Posדשגt'
-    //             //         }
-    //             //     }
-    //             // }
-    //         }
-    //     });
-    // }
-
     pushViewPostScreen() {
-        // if (!this.state.isPostExist){
-        //     alert('Post Deleted')
-        //     return
-        // }
         Navigation.push(this.props.componentId, {
             component: {
                 name: 'blog.ViewPost',
@@ -90,14 +66,6 @@ class PostsList extends Component {
                         passProps: {
                             someProp: 'some props'
                         }
-                        // ,
-                        // options: {
-                        //     topBar: {
-                        //         title: {
-                        //             text: 'Modal'
-                        //         }
-                        //     }
-                        // }
                     }
                 }]
             }
