@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 // import {View, Text, StyleSheet} from 'react-native';
-import {StyleSheet, Button} from 'react-native';
-import {View, Text} from 'react-native-ui-lib';
+import {StyleSheet} from 'react-native';
+import {View, Text, Button} from 'react-native-ui-lib';
 import PropTypes from 'prop-types';
 import {Navigation} from "react-native-navigation";
 
@@ -53,6 +53,9 @@ class ViewPost extends Component {
                     <Text text30 putple10>{title}</Text>
                     <Text text70 dark20 marginT-12>{text}</Text>
                 </View>
+                {/*<Button label="Delete Post" text80 red20 bg-red70 fullWidth onPress={this.onPostDeletePressed}/>*/}
+                <Button label='Delete Post' text80 red20 bg-red70 fullWidth onPress={this.onPostDeletePressed}/>
+                <Button label='Edit Post' text60 blue20 bg-blue80 onPress={this.onPostDeletePressed}/>
                 <Text style={styles.deleteText} onPress={this.onPostDeletePressed}>Delete Post</Text>
                 <Text style={styles.editText} onPress={this.onEditPostPressed}>Edit Post</Text>
             </View>
