@@ -9,6 +9,7 @@ class ViewPost extends Component {
     constructor(props){
         super(props);
         this.onPostDeletePressed = this.onPostDeletePressed.bind(this);
+        this.onEditPostPressed = this.onEditPostPressed.bind(this);
     }
 
     static propTypes = {
@@ -16,16 +17,28 @@ class ViewPost extends Component {
         post: PropTypes.object
     };
 
-    // popScreenAfterDel(){
-    //     Navigation.pop(this.props.componentId);
-    //     postsActions.deletePost(this.props.post.id)
-    //
-    //     alert("Post deleted")
-    // }
+
     onPostDeletePressed = async () => {
         Navigation.pop(this.props.componentId);
 
         await postsActions.deletePost(this.props.post.id);
+    };
+
+    onEditPostPressed = () => {
+        let post = this.props.post;
+        Navigation.showModal({
+            stack: {
+                children: [{
+                    component: {
+                        name: 'blog.EditPost',
+                        passProps: {
+                            someProp: 'some props',
+                            post
+                        }
+                    }
+                }]
+            }
+        });
     };
 
 
@@ -35,6 +48,7 @@ class ViewPost extends Component {
                 <Text style={styles.text}>View Post Screen</Text>
                 <Text>{JSON.stringify(this.props.post)}</Text>
                 <Text style={styles.deleteText} onPress={this.onPostDeletePressed}>Delete Post</Text>
+                <Text style={styles.editText} onPress={this.onEditPostPressed}>Edit Post</Text>
             </View>
         );
     }
@@ -56,6 +70,12 @@ const styles = StyleSheet.create({
     },
     deleteText: {
         color: 'red',
+        fontSize: 29,
+        textAlign: 'center',
+        margin: 10,
+    },
+    editText: {
+        color: 'magenta',
         fontSize: 29,
         textAlign: 'center',
         margin: 10,
