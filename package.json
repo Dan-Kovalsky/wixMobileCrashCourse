@@ -13,6 +13,7 @@
     "react": "16.8.3",
     "react-native": "0.59.0",
     "react-native-navigation": "^2.13.1",
+    "react-native-ui-lib": "^3.21.1",
     "remx": "^2.0.51"
   },
   "devDependencies": {

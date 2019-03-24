@@ -85,8 +85,6 @@ class PostsList extends Component {
     render() {
         return (
             <View style={styles.container}>
-                {/*<Text style={styles.text} onPress={this.pushViewPostScreen}>Posts List Screen</Text>*/}
-                {/*<Text>{JSON.stringify(this.props.posts)}</Text>*/}
                 <Text style={styles.text}>PostsList Screen</Text>
                 <FlatList
                     data={this.props.posts}
