@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
-import {View, Text, StyleSheet,TextInput} from 'react-native';
+// import {View, Text, StyleSheet,TextInput} from 'react-native';
+import {StyleSheet,TextInput} from 'react-native';
+import {View, Text} from 'react-native-ui-lib';
 import PropTypes from 'prop-types';
 import {Navigation} from 'react-native-navigation/lib/dist/index';
 import * as postsActions from "../posts.actions";

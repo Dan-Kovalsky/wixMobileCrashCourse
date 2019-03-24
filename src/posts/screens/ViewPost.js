@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
-import {View, Text, StyleSheet} from 'react-native';
+// import {View, Text, StyleSheet} from 'react-native';
+import {StyleSheet, Button} from 'react-native';
+import {View, Text} from 'react-native-ui-lib';
 import PropTypes from 'prop-types';
 import {Navigation} from "react-native-navigation";
 

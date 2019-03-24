@@ -1,5 +1,7 @@
 import React, {Component, PureComponent} from 'react';
-import {View, Text, StyleSheet,FlatList} from 'react-native';
+// import {View, Text, StyleSheet,FlatList} from 'react-native';
+import {StyleSheet,FlatList} from 'react-native';
+import {View, Text} from 'react-native-ui-lib';
 import PropTypes from 'prop-types';
 import {Navigation} from "react-native-navigation";
 
