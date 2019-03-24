@@ -88,11 +88,12 @@ class EditPost extends Component{
 
     render() {
         return (
-            <View style={styles.container}>
+            <View flex>
                 <Text style={styles.text}>Edit Post Screen</Text>
-                <Text>{this.props.someProp}</Text>
+                <Text margin-40>{this.props.someProp}</Text>
 
                 <TextInput
+                    style = {{marginBottom:20, marginLeft: 10}}
                     placeholder="change your post title TODO"
                     value={this.state.title}
                     onChangeText={this.onChangeTitle}
