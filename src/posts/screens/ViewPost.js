@@ -55,7 +55,7 @@ class ViewPost extends Component {
                 </View>
                 {/*<Button label="Delete Post" text80 red20 bg-red70 fullWidth onPress={this.onPostDeletePressed}/>*/}
                 <Button label='Delete Post' text80 red20 bg-red70 fullWidth onPress={this.onPostDeletePressed}/>
-                <Button label='Edit Post' text60 blue20 bg-blue80 onPress={this.onPostDeletePressed}/>
+                <Button label='Edit Post' text60 blue20 bg-blue80 onPress={this.onEditPostPressed}/>
                 <Text style={styles.deleteText} onPress={this.onPostDeletePressed}>Delete Post</Text>
                 <Text style={styles.editText} onPress={this.onEditPostPressed}>Edit Post</Text>
             </View>

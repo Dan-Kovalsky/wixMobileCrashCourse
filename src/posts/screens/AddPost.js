@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 // import {View, Text, StyleSheet,TextInput} from 'react-native';
-import {StyleSheet, TextInput} from 'react-native';
-import {View, Text} from 'react-native-ui-lib';
+import {StyleSheet} from 'react-native';
+import {View, Text, TextInput} from 'react-native-ui-lib';
 import PropTypes from 'prop-types';
 import {Navigation} from 'react-native-navigation/lib/dist/index';
 import * as postsActions from '../posts.actions';
@@ -84,13 +84,20 @@ class AddPost extends Component {
                 <Text marginB-30 marginL-20>{this.props.someProp}</Text>
 
                 <TextInput
-                    placeholder="Add great title"
-                    value={this.state.title}
+                    text70
+                    containerStyle={{marginBottom: 12}}
+                    floatingPlaceholder
+                    floatOnFocus
+                    placeholder="Add great Title"
+                    // value={this.state.title}
                     onChangeText={this.onChangeTitle}
                 />
                 <TextInput
+                    text70
+                    floatingPlaceholder
+                    expandable
                     placeholder = "This is the beggining of a new great post"
-                    value = {this.state.text}
+                    // value = {this.state.text}
                     onChangeText={this.onChangeText}
                 />
             </View>
