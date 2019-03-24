@@ -42,6 +42,7 @@ export async function deletePost(id) {
 }
 
 export async function editPost(idToDelete, newPost) {
+    // postsStore.editPost(idToDelete, newPost)
     deletePost(idToDelete);
     addPost(newPost)
 }

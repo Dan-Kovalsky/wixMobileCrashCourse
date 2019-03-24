@@ -3,7 +3,6 @@ import {View, Text, StyleSheet,TextInput} from 'react-native';
 import PropTypes from 'prop-types';
 import {Navigation} from 'react-native-navigation/lib/dist/index';
 import * as postsActions from "../posts.actions";
-import AddPost from "./AddPost";
 
 
 class EditPost extends Component{
@@ -12,8 +11,8 @@ class EditPost extends Component{
         super(props);
         Navigation.events().bindComponent(this);
         this.state = {
-            title: '',
-            text: ''
+            title: this.props.post.title,
+            text: this.props.post.text
         };
         this.onChangeText = this.onChangeText.bind(this);
         this.onChangeTitle = this.onChangeTitle.bind(this);
@@ -51,6 +50,7 @@ class EditPost extends Component{
             Navigation.dismissModal(this.props.componentId);
             const randomImageNumber = Math.floor((Math.random() * 500) + 1);
             postsActions.editPost(this.props.post.id, {
+                id: this.props.post.id,
                 title: this.state.title,
                 text: this.state.text,
                 img: `https://picsum.photos/200/200/?image=${randomImageNumber}`
@@ -72,7 +72,7 @@ class EditPost extends Component{
     }
 
     onChangeText(text) {
-        this.setState({text})
+        this.setState({text});
         Navigation.mergeOptions(this.props.componentId, {
             topBar: {
                 rightButtons: [{

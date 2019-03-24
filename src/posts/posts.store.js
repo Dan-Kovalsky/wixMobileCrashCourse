@@ -25,6 +25,15 @@ const setters = remx.setters({
 
     deletePost(id) {
         state.posts = filter(state.posts, post => post.id !== id);
+    },
+
+    editPost(id, post){
+        state.posts = state.posts.map((oldPost) => {
+            if (id === oldPost.id) {
+                oldPost.title = post.title;
+                oldPost.text = post.text;
+            }
+        })
     }
 });
 
