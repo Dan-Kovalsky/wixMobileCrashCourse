@@ -85,12 +85,14 @@ class PostsList extends Component {
             activeOpacity={0.1}
             height={77.5}
             onPress={() => this.pushViewPostScreen(item)}
+            testID={item.id.toString()}
         >
             <ListItem.Part left>
                 <Image
                     source={{uri: item.img}}
                     style={styles.image}
                 />
+                <Text>ID {item.id}   </Text>
             </ListItem.Part>
             <ListItem.Part middle column containerStyle={[styles.border, {paddingRight: 17}]}>
                 <ListItem.Part containerStyle={{marginBottom: 3}}>
