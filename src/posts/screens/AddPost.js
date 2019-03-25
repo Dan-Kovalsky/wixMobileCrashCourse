@@ -80,7 +80,7 @@ class AddPost extends Component {
     render() {
         return (
             <View flex padding-24>
-                <Text text40 green10 marginB-12>Add Post</Text>
+                <Text text40 purple10 marginB-24>Add Post</Text>
                 <Text marginB-30 marginL-20>{this.props.someProp}</Text>
 
                 <TextInput
