@@ -50,11 +50,11 @@ class ViewPost extends Component {
         return (
             <View flex spread padding-24>
                 <View>
-                    <Text text30 putple10>{title}</Text>
-                    <Text text70 dark20 marginT-12>{text}</Text>
+                    <Text testID='post-title' text30 putple10>{title}</Text>
+                    <Text testID='post-text' text70 dark20 marginT-12>{text}</Text>
                 </View>
                 {/*<Button label="Delete Post" text80 red20 bg-red70 fullWidth onPress={this.onPostDeletePressed}/>*/}
-                <Button label='Delete Post' text80 red20 bg-red70 fullWidth onPress={this.onPostDeletePressed}/>
+                <Button testID='delete-post-btn' label='Delete Post' text80 red20 bg-red70 fullWidth onPress={this.onPostDeletePressed}/>
                 <Button label='Edit Post' text60 blue20 bg-blue80 onPress={this.onEditPostPressed}/>
                 <Text style={styles.deleteText} onPress={this.onPostDeletePressed}>Delete Post</Text>
                 <Text style={styles.editText} onPress={this.onEditPostPressed}>Edit Post</Text>

@@ -27,7 +27,7 @@ class PostsList extends Component {
                     {
                         id: 'addPost',
                         text: 'Add',
-                        testID: 'PostsList-add'
+                        testID: 'add-post-btn'
                     }
                 ]
             }
@@ -86,7 +86,7 @@ class PostsList extends Component {
             activeOpacity={0.1}
             height={77.5}
             onPress={() => this.pushViewPostScreen(item)}
-            testID={item.id.toString()}
+            testID={'postItem-'+item.id.toString()}
         >
             <ListItem.Part left>
                 <Image

@@ -33,14 +33,16 @@ class AddPost extends Component {
                 title: {
                     text: 'Add Post'
                 },
+                leftButtons: [{
+                    id: 'cancelBtn',
+                    text: 'Cancel',
+                    testID: 'cancel-post-btn'
+                }],
                 rightButtons: [{
                     id: 'saveBtn',
                     text: 'Save',
-                    enabled: false
-                }],
-                leftButtons: [{
-                    id: 'cancelBtn',
-                    text: 'Cancel'
+                    enabled: false,
+                    testID: 'save-post-btn'
                 }]
             }
         };
@@ -84,6 +86,7 @@ class AddPost extends Component {
                 <Text marginB-30 marginL-20>{this.props.someProp}</Text>
 
                 <TextInput
+                    testID='add-title-input'
                     text70
                     containerStyle={{marginBottom: 12}}
                     floatingPlaceholder
