@@ -6,7 +6,8 @@
     "start": "node node_modules/react-native/local-cli/cli.js start",
     "test": "jest",
     "android": "cd ./android && ./gradlew app:assembleDebug && ./gradlew installDebug",
-    "fake-server": "json-server --watch db.json"
+    "fake-server": "json-server --watch db.json",
+    "start-e2e": "RN_SRC_EXT=e2e.js react-native start"
   },
   "dependencies": {
     "lodash": "^4.17.11",

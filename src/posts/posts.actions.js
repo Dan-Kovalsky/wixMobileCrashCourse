@@ -1,49 +1,58 @@
-import {postsStore} from './posts.store';
+// import {postsStore} from './posts.store';
+//
+// export async function fetchPosts() {
+//     const response = await fetch('http://localhost:3000/posts');
+//     const posts = await response.json();
+//     postsStore.setPosts(posts);
+// }
+//
+// export async function addPost(post) {
+//     const response = await fetch('http://localhost:3000/posts', {
+//         method: 'POST',
+//         headers: {
+//             Accept: 'application/json',
+//             'Content-Type': 'application/json',
+//         },
+//         body: JSON.stringify(post),
+//     });
+//     const postToAdd = await response.json();
+//     postsStore.addPost(postToAdd);
+// }
+//
+// export async function deletePost(id) {
+//     await fetch(`http://localhost:3000/posts/${id}`, {
+//         method: 'DELETE'
+//     });
+//     postsStore.deletePost(id);
+// }
+//
+// export async function editPost(idToDelete, newPost) {
+//     // postsStore.editPost(idToDelete, newPost)
+//     deletePost(idToDelete);
+//     addPost(newPost)
+// }
 
-// const posts = [
-//     {
-//         id: 1,
-//         title: 'Post 1',
-//         text: 'Post 1 text',
-//         img: 'https://picsum.photos/200/200/?image=977'
-//     },
-//     {
-//         id: 2,
-//         title: 'Post 2',
-//         text: 'Post 2 text',
-//         img: 'https://picsum.photos/200/200/?image=1'
-//     }
-// ];
+
+import {postsStore} from './posts.store';
+import * as ServerApi from '../api';
 
 export async function fetchPosts() {
-    const response = await fetch('http://localhost:3000/posts');
-    const posts = await response.json();
+    const posts = await ServerApi.fetchPosts();
     postsStore.setPosts(posts);
 }
 
 export async function addPost(post) {
-    const response = await fetch('http://localhost:3000/posts', {
-        method: 'POST',
-        headers: {
-            Accept: 'application/json',
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(post),
-    });
-    const postToAdd = await response.json();
+    const postToAdd = await ServerApi.addPost(post);
     postsStore.addPost(postToAdd);
 }
 
 export async function deletePost(id) {
-    await fetch(`http://localhost:3000/posts/${id}`, {
-        method: 'DELETE'
-    });
+    await ServerApi.deletePost(id);
     postsStore.deletePost(id);
 }
 
-export async function editPost(idToDelete, newPost) {
-    // postsStore.editPost(idToDelete, newPost)
-    deletePost(idToDelete);
-    addPost(newPost)
+export async function editPost(idToDelete, newPost){
+    await ServerApi.editPost(idToDelete, newPost);
+    // postsStore.editPost(idToDelete,newPost);
 }
 
