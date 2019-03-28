@@ -53,13 +53,7 @@ describe('Example', () => {
 
 
   it('should test nothing', function () {
-
   });
-  it('should test nothing', function () {
 
-  });
-  it('should test nothing', function () {
-
-  });
 });
 
