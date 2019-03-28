@@ -5,6 +5,7 @@ import {View, Text, TextInput} from 'react-native-ui-lib';
 import PropTypes from 'prop-types';
 import {Navigation} from 'react-native-navigation/lib/dist/index';
 import * as postsActions from '../posts.actions';
+import * as addPostPresenter from './AddPost.presenter';
 
 
 class AddPost extends Component {
@@ -52,28 +53,37 @@ class AddPost extends Component {
         if (buttonId === 'cancelBtn') {
             Navigation.dismissModal(this.props.componentId);
         } else if (buttonId === 'saveBtn') {
-            Navigation.dismissModal(this.props.componentId);
-            const randomImageNumber = Math.floor((Math.random() * 500) + 1);
-            postsActions.addPost({
+            addPostPresenter.onSaveBtnPressed({
+                componentId: this.props.componentId,
                 title: this.state.title,
-                text: this.state.text,
-                img: `https://picsum.photos/200/200/?image=${randomImageNumber}`
-            });
+                text:this.state.text
+            })
+            // Navigation.dismissModal(this.props.componentId);
+            // const randomImageNumber = Math.floor((Math.random() * 500) + 1);
+            // postsActions.addPost({
+            //     title: this.state.title,
+            //     text: this.state.text,
+            //     img: `https://picsum.photos/200/200/?image=${randomImageNumber}`
+            // });
         }
     }
 
     onChangeTitle(title){
         this.setState({title});
-        Navigation.mergeOptions(this.props.componentId, {
-            topBar: {
-                rightButtons: [{
-                    id: 'saveBtn',
-                    text: 'Save',
-                    enabled: !!title
-                }]
-            }
+        addPostPresenter.onChangeTitle({
+            componentId: this.props.componentId,
+            title: title
         });
-    }
+        // Navigation.mergeOptions(this.props.componentId, {
+        //     topBar: {
+        //         rightButtons: [{
+        //             id: 'saveBtn',
+        //             text: 'Save',
+        //             enabled: !!title
+        //         }]
+        //     }
+        // });
+    };
 
     onChangeText(text) {
         this.setState({text});
