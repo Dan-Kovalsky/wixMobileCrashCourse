@@ -1,26 +1,16 @@
 {
   "posts": [
     {
-      "title": "Xbxxv",
-      "img": "https://picsum.photos/200/200/?image=441",
-      "id": 2
+      "title": "88888",
+      "text": "",
+      "img": "https://picsum.photos/200/200/?image=432",
+      "id": 9
     },
     {
-      "id": 1,
-      "title": "Post 1 zvdsvsdvdvssf",
-      "text": "post 1 text",
-      "img": "https://picsum.photos/200/200/?image=468"
-    },
-    {
-      "title": "Fsddfssdffds",
-      "img": "https://picsum.photos/200/200/?image=73",
-      "id": 3
-    },
-    {
-      "id": 4,
-      "title": "Af",
-      "text": "Asdasfdasfa",
-      "img": "https://picsum.photos/200/200/?image=140"
+      "id": 8,
+      "title": "66666667",
+      "text": "66666",
+      "img": "https://picsum.photos/200/200/?image=363"
     }
   ],
   "comments": [],
