@@ -2,19 +2,23 @@
   "name": "wixMobileCrashCourse",
   "version": "0.0.1",
   "private": true,
+  "main": "src/module.js",
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
     "test": "jest",
     "android": "cd ./android && ./gradlew app:assembleDebug && ./gradlew installDebug ",
     "fake-server": "json-server --watch db.json",
-    "start-e2e": "RN_SRC_EXT=e2e.js react-native start"
+    "start-e2e": "RN_SRC_EXT=e2e.js react-native start",
+    "postinstall": "one-app-engine --setup",
+    "start-a-i": "one-app-engine -ai",
+    "start-ios": "one-app-engine -i",
+    "start-android": "one-app-engine -a"
   },
   "dependencies": {
     "lodash": "^4.17.11",
     "react": "16.8.3",
-    "react-native": "0.59.0",
     "react-native-navigation": "^2.13.1",
-    "react-native-ui-lib": "^3.21.1",
+    "wix-react-native-ui-lib": "^4.0.0",
     "remx": "^2.0.51"
   },
   "devDependencies": {
@@ -25,7 +29,12 @@
     "jest": "^24.5.0",
     "metro-react-native-babel-preset": "^0.53.0",
     "mocha": "^6.0.2",
-    "react-test-renderer": "16.8.3"
+    "react-test-renderer": "16.8.3",
+    "wix-one-app-engine": "master",
+    "native-app-wix-login": "ga"
+  },
+  "peerDependencies": {
+    "wix-one-app-engine": "*"
   },
   "jest": {
     "preset": "react-native"
@@ -40,5 +49,11 @@
       }
     },
     "test-runner": "mocha"
+  },
+  "oneAppEngine": {
+    "modules": [
+      "wixMobileCrashCourse"
+    ],
+    "tabs": []
   }
 }

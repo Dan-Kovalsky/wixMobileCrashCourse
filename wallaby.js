@@ -8,7 +8,7 @@ module.exports = function (wallaby) {
         path.join(__dirname, 'node_modules') +
         path.delimiter +
         path.join(__dirname, 'node_modules/react-scripts/node_modules');
-    require('module').Module._initPaths();
+    require('src/module').Module._initPaths();
 
     return {
         files: [
