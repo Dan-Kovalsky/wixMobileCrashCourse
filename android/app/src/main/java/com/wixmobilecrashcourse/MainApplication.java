@@ -3,6 +3,7 @@ package com.wixmobilecrashcourse;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import com.reactlibrarynativetoast.RNNativeToastLibraryPackage;
 import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
 import com.facebook.react.shell.MainReactPackage;
@@ -44,7 +45,8 @@ public class MainApplication extends NavigationApplication {
 //             eg. new VectorIconsPackage()
                 new HighlighterViewPackage(),
                 new TextInputDelKeyHandlerPackage(),
-                new WheelPickerPackage()
+                new WheelPickerPackage(),
+                new RNNativeToastLibraryPackage()
 
         );
     }

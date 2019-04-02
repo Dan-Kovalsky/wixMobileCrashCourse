@@ -158,6 +158,7 @@ configurations.all {
 }
 
 dependencies {
+    implementation project(':react-dankov-native-dankov-native-dankov-toast-dankov-library-dankov')
     implementation fileTree(dir: "libs", include: ["*.jar"])
     implementation "com.facebook.react:react-native:+"  // From node_modules
     implementation project(':react-native-navigation')

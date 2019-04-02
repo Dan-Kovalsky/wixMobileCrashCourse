@@ -1,11 +1,14 @@
 import React, {Component} from 'react';
 // import {View, Text, StyleSheet,TextInput} from 'react-native';
-import {StyleSheet} from 'react-native';
+import {StyleSheet, Button, Alert} from 'react-native';
 import {View, Text, TextInput} from 'react-native-ui-lib';
 import PropTypes from 'prop-types';
 import {Navigation} from 'react-native-navigation/lib/dist/index';
 import * as postsActions from '../posts.actions';
 import * as addPostPresenter from './AddPost.presenter';
+
+
+import RNNativeToastLibrary from 'react-dankov-native-dankov-native-dankov-toast-dankov-library-dankov';
 
 
 class AddPost extends Component {
@@ -102,7 +105,6 @@ class AddPost extends Component {
                     floatingPlaceholder
                     floatOnFocus
                     placeholder="Add great Title"
-                    // value={this.state.title}
                     onChangeText={this.onChangeTitle}
                 />
                 <TextInput
@@ -110,9 +112,21 @@ class AddPost extends Component {
                     floatingPlaceholder
                     expandable
                     placeholder = "This is the beggining of a new great post"
-                    // value = {this.state.text}
                     onChangeText={this.onChangeText}
                 />
+                <Button
+                    onPress={() => {RNNativeToastLibrary.show("TEXT = " + this.state.text)}}
+                    title="Show Android Toast"
+                    color="#843333"
+                    />
+                <View flex paddingT-10 marginT-10>
+                    <Button
+                        onPress={() => {RNNativeToastLibrary.showLong('TITLE = ' + this.state.title)}}
+                        title="LONG Toast of title"
+                        color="#123456"
+                    />
+                </View>
+
             </View>
         );
     }
