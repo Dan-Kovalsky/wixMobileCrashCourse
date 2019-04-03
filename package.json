@@ -1,24 +1,29 @@
 {
-  "name": "wixMobileCrashCourse",
+  "name": "wix_mobile_crash_course",
   "version": "0.0.1",
-  "private": true,
   "scripts": {
-    "start": "node node_modules/react-native/local-cli/cli.js start",
+    "start-old": "node node_modules/react-native/local-cli/cli.js start",
+    "start_inline": "npm start --config packager/config.js",
     "test": "jest",
-    "android": "cd ./android && ./gradlew app:assembleDebug && ./gradlew installDebug ",
+    "watch": "jest --watch",
     "fake-server": "json-server --watch db.json",
-    "start-e2e": "RN_SRC_EXT=e2e.js react-native start"
+    "android": "cd ./android && ./gradlew app:assembleDebug && ./gradlew installDebug",
+    "start": "one-app-engine --mock-mode quickLogin -ia",
+    "start-e2e": "one-app-engine --custom-extensions e2e.js,engineMock.js",
+    "start-ios": "one-app-engine -i",
+    "start-android": "one-app-engine -a",
+    "release": "mltci release",
+    "postinstall": "one-app-engine --setup",
+    "customPublish": "npm run tsc-prod && mltci release"
   },
+  "postinstall": "one-app-engine --setup",
   "dependencies": {
-    "lodash": "^4.17.11",
-    "react": "16.8.3",
     "react-dankov-native-dankov-native-dankov-toast-dankov-library-dankov": "^1.1.0",
-    "react-native": "0.59.0",
-    "react-native-navigation": "^2.13.1",
-    "react-native-ui-lib": "^3.21.1",
-    "remx": "^2.0.51"
+    "wix-react-native-ui-lib": "ga",
+    "react": "16.6.0-alpha.8af6728"
   },
   "devDependencies": {
+    "wix-mobile-lifecycle-tools": "^2.0.0",
     "@babel/core": "^7.3.4",
     "@babel/runtime": "^7.3.4",
     "babel-jest": "^24.5.0",
@@ -26,7 +31,20 @@
     "jest": "^24.5.0",
     "metro-react-native-babel-preset": "^0.53.0",
     "mocha": "^6.0.2",
-    "react-test-renderer": "16.8.3"
+    "react-test-renderer": "16.8.3",
+    "wix-one-app-engine": "master"
+  },
+  "publishConfig": {
+    "registry": "http://npm.dev.wixpress.com/"
+  },
+  "peerDependencies": {
+    "wix-one-app-engine": "*"
+  },
+  "oneAppEngine": {
+    "modules": [
+      "wix_mobile_crash_course"
+    ],
+    "tabs": []
   },
   "jest": {
     "preset": "react-native"
@@ -41,5 +59,6 @@
       }
     },
     "test-runner": "mocha"
-  }
+  },
+  "main": "./src/module.js"
 }

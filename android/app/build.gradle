@@ -73,7 +73,7 @@ import com.android.build.OutputFile
  */
 
 project.ext.react = [
-    entryFile: "index.js"
+    bundleConfig: "packager/config.js"
 ]
 
 apply from: "../../node_modules/react-native/react.gradle"
@@ -159,13 +159,10 @@ configurations.all {
 
 dependencies {
     implementation project(':react-dankov-native-dankov-native-dankov-toast-dankov-library-dankov')
-    implementation fileTree(dir: "libs", include: ["*.jar"])
     implementation "com.facebook.react:react-native:+"  // From node_modules
     implementation project(':react-native-navigation')
     implementation 'com.android.support:design:25.4.0'
     implementation "com.android.support:appcompat-v7:${rootProject.ext.supportLibVersion}"
-    implementation project(':react-native-ui-lib')
-
 }
 
 // Run this once to be able to run the application with BUCK
